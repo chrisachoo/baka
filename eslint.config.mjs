@@ -10,7 +10,7 @@ export default antfu(
       quotes: "double"
     },
 
-    ignores: ["**/.vitepress/*"]
+    ignores: ["**/.vitepress/*", "**/node_modules/*"]
   },
   {
     rules: {

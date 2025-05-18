@@ -14,7 +14,6 @@ export default defineConfig({
 
   assetsDir: "static",
   cacheDir: "./.vitepress/.vite",
-  outDir: "./public",
   srcDir: "./src",
 
   head: [
@@ -56,7 +55,7 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Docs", link: "/docs" },
-      { text: "Examples", link: "/examples" }
+      { text: "Scripts", link: "/baka-sh" }
     ],
 
     sidebar: [
