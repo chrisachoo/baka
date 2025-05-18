@@ -8,23 +8,19 @@ export default antfu(
     stylistic: {
       indent: 2,
       quotes: "double"
-    }
+    },
+
+    ignores: ["**/.vitepress/*"]
   },
   {
-    ignores: ["**/.vitepress/*"],
     rules: {
+      "perfectionist/sort-imports": ["error"],
       "style/comma-dangle": ["error", { functions: "never" }],
       "unicorn/filename-case": [
         "error",
         {
           case: "kebabCase",
           ignore: ["README.md"]
-        }
-      ],
-      "perfectionist/sort-imports": [
-        "error",
-        {
-          tsconfigRootDir: "."
         }
       ]
     }
