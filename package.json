@@ -1,0 +1,24 @@
+{
+  "name": "baka",
+  "version": "0.0.1",
+  "description": "Baka is a Git shortcut tool designed to simplify commands and boost productivity. No more fumbling with complex Git syntax—just simple, powerful shortcuts.",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "prettier": "prettier . --write",
+    "prettier:check": "prettier . --check"
+  },
+  "dependencies": {
+    "vitepress-plugin-group-icons": "^1.5.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.13.1",
+    "eslint": "^9.26.0",
+    "eslint-plugin-format": "^1.0.1",
+    "prettier": "^3.5.3",
+    "vitepress": "^1.6.3"
+  }
+}
