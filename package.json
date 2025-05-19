@@ -32,7 +32,19 @@
     "vitepress": "^1.6.3"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "bun run lint:fix",
-    "*.{json,md}": "prettier --write"
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ],
+    "!(*.css|*.ts|*.tsx|*.json|*.md)": [
+      "prettier --write"
+    ]
   }
 }
