@@ -1,6 +1,6 @@
 # 🐙 Baka
 
-> Git can make you feel like a fool. **Baka** makes it easy.  
+> Git can make you feel like a fool. **Baka** makes it easy.
 > Streamline your Git workflow with smart shortcuts, aliases, and intuitive commands.
 
 ---
