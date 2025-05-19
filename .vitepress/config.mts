@@ -12,6 +12,8 @@ export default defineConfig({
   ignoreDeadLinks: true,
   cleanUrls: true,
 
+  base: "/baka/",
+
   assetsDir: "static",
   cacheDir: "./.vitepress/.vite",
   srcDir: "./src",
