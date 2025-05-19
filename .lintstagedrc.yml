@@ -1,0 +1,15 @@
+"*.js":
+  - prettier --list-different
+  - eslint
+  - eslint --fix
+
+"*.json":
+  - prettier --write
+
+"*.md":
+  - prettier --list-different
+
+"*.ts":
+  - prettier --list-different
+  - eslint
+  - eslint --fix

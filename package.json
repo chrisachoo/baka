@@ -8,6 +8,7 @@
     "preview": "vitepress preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
+    "lint-staged": "lint-staged",
     "prettier": "prettier . --write",
     "prettier:check": "prettier . --check",
     "prettier:format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -31,19 +32,7 @@
     "vitepress": "^1.6.3"
   },
   "lint-staged": {
-    "*.css": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ],
-    "!(*.css|*.ts|*.tsx|*.json|*.md)": [
-      "prettier --write"
-    ]
+    "*.{ts,tsx}": "bun run lint:fix",
+    "*.{json,md}": "prettier --write"
   }
 }
