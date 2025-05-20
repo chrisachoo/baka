@@ -1,5 +1,10 @@
 node_modules
 dist
 
+# Ignore VitePress build and cache directories to prevent them from being tracked by Git.
+# - /.vitepress/cache: VitePress cache files.
+# - /.vitepress/dist: Built static site output.
+# - /.vitepress/.vite: Vite-specific cache directory.
 /.vitepress/cache
 /.vitepress/dist
+/.vitepress/.vite

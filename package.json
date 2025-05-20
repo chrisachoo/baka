@@ -8,6 +8,7 @@
     "preview": "vitepress preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
+    "lint-staged": "lint-staged",
     "prettier": "prettier . --write",
     "prettier:check": "prettier . --check",
     "prettier:format": "prettier --write \"**/*.{ts,tsx,md}\"",

@@ -32,7 +32,7 @@ A quick, beginner-friendly way to speed up your Git commands in the terminal. Us
 1. **Download the script**:
 
 ```bash
-curl -o ~/.baka.sh https://raw.githubusercontent.com/chrisachoo/baka/main/scripts/baka.sh
+curl -o ~/.baka.sh https://raw.githubusercontent.com/chrisachoo/baka/main/blob/scripts/baka.sh
 ```
 
 2. **Source it in your shell config** (`~/.zshrc` or `~/.bashrc`):
@@ -99,8 +99,17 @@ gbd() {
 alias gbd=gbd
 ```
 
----
-
 ## ✨ Customize It
 
 Want to create your own shortcuts or add prompts, safety checks, or logs? Visit the [Git Aliases & Customization](/aliases) page to learn how to extend `baka.sh`.
+
+## 🔗 References & Recommendations
+
+Baka is inspired by and compatible with the wider Zsh plugin ecosystem. If you're looking for more advanced Git aliases, shell enhancements, or want to expand your workflow, check out these official Oh My Zsh resources:
+
+- 🌐 [Oh My Zsh – Main Repository](https://github.com/ohmyzsh/ohmyzsh/tree/master)
+- 🔌 [Git Plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) – Tons of useful Git aliases
+- 🌱 [Git Flow Plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git-flow)
+- 🧩 [All Plugins](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins) – Browse and explore more
+
+These plugins are highly customizable and can complement or extend `baka.sh`. You can even combine them for a supercharged terminal setup.
