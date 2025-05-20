@@ -32,7 +32,7 @@ A quick, beginner-friendly way to speed up your Git commands in the terminal. Us
 1. **Download the script**:
 
 ```bash
-curl -o ~/.baka.sh https://raw.githubusercontent.com/chrisachoo/baka/main/scripts/baka.sh
+curl -o ~/.baka.sh https://raw.githubusercontent.com/chrisachoo/baka/main/blob/scripts/baka.sh
 ```
 
 2. **Source it in your shell config** (`~/.zshrc` or `~/.bashrc`):

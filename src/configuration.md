@@ -13,197 +13,139 @@ head:
 
 # ⚙️ Configuration
 
-Baka uses a shell script (`baka.sh`) to define handy aliases for commonly used Git commands. These shortcuts are easy to remember and type, making your Git workflow much faster and more fun.
+Baka is a terminal-first Git productivity system built with shell scripts. You can use the provided `baka.sh` script or roll your own. It’s modular, customizable, and plays nicely with existing dotfile setups.
 
-> 💡 To enable them, source the file in your `.bashrc`, `.zshrc`, or `.profile`:
->
-> ```bash
-> source /path/to/baka.sh
-> ```
+## 🧠 Load It Your Way
 
----
-
-## 🧩 Git Aliases & Meanings
-
-Here’s what each alias does:
+Source `baka.sh` from your preferred shell config file:
 
 ```bash
-alias ginit="git init"
+# Example: ~/.zshrc or ~/.bashrc
+source ~/baka.sh
 ```
 
-**`ginit`** – Initializes a new Git repository in your current folder. Use this to start tracking your project with Git.
+> 💡 You’re not locked into the file name or structure. Use `~/.gitflow.sh`, `~/.aliases.sh`, `~/.workflow.sh`—anything that fits your setup.
 
----
+For advanced dotfile setups, you can modularize and source multiple scripts conditionally.
+
+## 🧩 Git Aliases (Defaults)
+
+Here are some of the built-in shortcuts:
 
 ```bash
-alias gcl="git clone"
+alias ginit="git init"                 # Init repo
+alias gcl="git clone"                 # Clone repo
+alias ga="git add ."                  # Add all
+alias gs="git status"                # Status
+alias gd="git diff"                  # Diff changes
+alias gl="git log --oneline --graph" # Compact log
+alias gco="git checkout"             # Switch branches
+alias gcb="git checkout -b"          # Create new branch
+alias gb="git branch"                # List branches
+alias gmg="git merge"                # Merge
+alias gps="git push"                 # Push
+alias gpl="git pull"                 # Pull
+alias gstash="git stash"             # Stash
+alias gtag="git tag"                 # Tag
+alias gshow="git show"               # Show details
 ```
 
-**`gcl`** – Clones a Git repository from a remote source (like GitHub). Great for downloading and working on existing projects.
+## 🛡️ Interactive Helpers (Safety & UX)
 
----
+### Safe Branch Deletion
 
 ```bash
-alias ga="git add ."
+gdel() {
+  local branch="$1"
+  if [ -z "$branch" ]; then
+    echo "Usage: gdel <branch-name>"
+    return 1
+  fi
+  read -rp "Delete branch '$branch'? (y/n): " confirm
+  [[ $confirm == y* ]] && git branch -d "$branch"
+}
 ```
 
-**`ga`** – Adds all files in the current folder to the staging area (preparing for commit). It's like saying “I want to save these changes.”
+### Undo Last Commit (Keep Changes)
 
----
+```bash
+gundo() {
+  git reset --soft HEAD~1
+  echo "Last commit undone. Changes are staged."
+}
+```
+
+### Commit With Preview
+
+```bash
+gcommit-safe() {
+  git diff --staged
+  echo "Commit staged changes above? (y/n)"
+  read -r confirm
+  [[ $confirm == y* ]] && git commit
+}
+```
+
+### Switch Branch (with `fzf`)
+
+```bash
+gswitch() {
+  local branch
+  branch=$(git branch | sed 's/..//' | fzf)
+  [ -n "$branch" ] && git checkout "$branch"
+}
+```
+
+> 🧩 Optional dependency: [`fzf`](https://github.com/junegunn/fzf)
+
+## 🗃 Modular Setup
+
+To organize your scripts:
+
+```
+~/.dotfiles/
+├── .zshrc
+├── baka.sh
+├── git-workflow.sh
+├── dev-aliases.sh
+└── zshine.zsh
+```
+
+Then source each in your `.zshrc`:
+
+```bash
+source ~/.dotfiles/baka.sh
+source ~/.dotfiles/git-workflow.sh
+```
+
+This helps you isolate concerns (aliases, prompts, workflows) for easier updates.
+
+## 🎨 Optional: Terminal Setup
+
+If you want a pre-styled terminal with Git-aware prompt, completions, and plugins:
+
+🔗 [ZShine – Terminal Starter Kit](https://github.com/chrisachoo/zshine)
+
+Includes:
+
+- Git-aware prompt and symbols
+- Auto suggestions & completions
+- Nice themes and alias-friendly structure
+
+## 📄 Example `.baka.sh` Template
 
 ```bash
 alias gs="git status"
+alias ga="git add ."
+alias gcommit-all='git add . && read -rp "Message: " msg && git commit -m "$msg"'
+gdel() {
+  read -rp "Delete branch '$1'? (y/n): " c
+  [[ $c == y* ]] && git branch -d "$1"
+}
 ```
 
-**`gs`** – Shows what files are modified, staged, or untracked. Useful to check what’s happening in your repo before committing.
+Place this anywhere (`~/.baka.sh`, `~/.aliases/git.sh`) and load it in your shell config.
 
 ---
 
-```bash
-alias gd="git diff"
-```
-
-**`gd`** – Displays the differences between your files and what’s staged or committed. Perfect for reviewing what changed.
-
----
-
-```bash
-alias grs="git reset"
-```
-
-**`grs`** – Unstages files or moves the current `HEAD` (commit pointer) backwards. Great when you want to undo staging or a recent commit.
-
----
-
-```bash
-alias grm="git rm"
-```
-
-**`grm`** – Removes files from both your project and the Git index. Use when you want Git to stop tracking a file and delete it.
-
----
-
-```bash
-alias gl="git log --oneline --graph"
-```
-
-**`gl`** – A compact view of your commit history in a nice tree-like graph. Super helpful to understand your branch history at a glance.
-
----
-
-```bash
-alias gco="git checkout"
-```
-
-**`gco`** – Switches between branches or restores files. Commonly used to move to a different branch.
-
----
-
-```bash
-alias gcb="git checkout -b"
-```
-
-**`gcb`** – Creates and switches to a new branch. A shortcut for starting new work without affecting the main branch.
-
----
-
-```bash
-alias gb="git branch"
-```
-
-**`gb`** – Lists all local branches, or creates/deletes branches with extra options.
-
----
-
-```bash
-alias gmg="git merge"
-```
-
-**`gmg`** – Merges the current branch with another. Helpful when combining finished feature branches into main or dev.
-
----
-
-```bash
-alias gps="git push"
-```
-
-**`gps`** – Uploads your local commits to a remote repo (like GitHub). Think of it as syncing your work with the cloud.
-
----
-
-```bash
-alias gpl="git pull"
-```
-
-**`gpl`** – Fetches and integrates changes from the remote repo. Use this before starting work to stay up to date.
-
----
-
-```bash
-alias gstash="git stash"
-```
-
-**`gstash`** – Temporarily saves your current changes without committing them. Super useful if you need to switch branches quickly.
-
----
-
-```bash
-alias gtag="git tag"
-```
-
-**`gtag`** – Adds a lightweight label to a specific commit. Useful for marking releases like `v1.0`.
-
----
-
-```bash
-alias gshow="git show"
-```
-
-**`gshow`** – Displays detailed information about a specific commit, tag, or object. Often used to see commit messages and file diffs.
-
----
-
-## 🔧 Optional: Interactive Prompts
-
-You can even wrap some aliases in interactive prompts (like `yes/no`) for safety. For example, a branch deletion alias like this:
-
-```bash
-alias gbd='function _gbd() {
-  echo "Are you sure you want to delete this branch? (y/n)"
-  read -r ans
-  if [ "$ans" = "y" ]; then
-    git branch -d "$1"
-  else
-    echo "Cancelled."
-  fi
-}; _gbd'
-```
-
----
-
-## 🗂 Add to Your Shell
-
-Add the aliases by either:
-
-- Copying them into your `.bashrc` / `.zshrc`
-- Or sourcing `baka.sh` directly:
-
-  ```bash
-  source /path/to/baka.sh
-  ```
-
-Run `source ~/.zshrc` or restart your terminal to apply the changes.
-
----
-
-> ✨ Now you can use `gs`, `ga`, `gco`, etc., like a Git wizard!
-
-Here's your downloadable `baka.sh` file with all the Git aliases and an interactive prompt for deleting a branch:
-
-👉 [Download baka.sh](/baka.sh)
-
-You can place it anywhere on your system and source it in your shell config:
-
-```bash
-source /path/to/baka.sh
-```
+> 🧠 Use what helps. Remove or rename anything you don’t like. Your terminal, your rules.

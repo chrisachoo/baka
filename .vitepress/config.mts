@@ -78,19 +78,26 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: "Git Aliases & Customization", link: "/aliases" },
-          { text: "Git Workflows", link: "/git-workflows" }
+          { text: "Git Workflows", link: "/workflows" }
         ]
       },
       {
-        text: "Advanced Git Features",
-        items: [{ text: "Beginner vs Advanced", link: "/features" }]
-      }
+        text: "Advanced Features",
+        items: [{ text: "Features", link: "/features" }]
+      },
+      // {
+      //   text: "Contributing",
+      //   items: [
+      //     { text: "Guideline", link: "/contributing/guideline" },
+      //     { text: "Code of Conduct", link: "contributing/code-of-conduct" }
+      //   ]
+      // }
     ],
 
     socialLinks: [
       { icon: "github", link: "https://github.com/chrisachoo/baka" },
-      { icon: "discord", link: "https://discord.gg/" },
-      { icon: "x", link: "https://x.com/baka" }
+      // { icon: "discord", link: "https://discord.gg/" },
+      // { icon: "x", link: "https://x.com/baka" }
     ],
 
     editLink: {
