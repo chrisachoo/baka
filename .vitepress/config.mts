@@ -57,7 +57,7 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Docs", link: "/docs" },
-      { text: "Scripts", link: "/baka-sh" }
+      { text: "Scripts", link: "/scripts" }
     ],
 
     sidebar: [
