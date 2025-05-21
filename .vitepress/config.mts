@@ -85,13 +85,12 @@ export default defineConfig({
         text: "Advanced Features",
         items: [{ text: "Features", link: "/features" }]
       },
-      // {
-      //   text: "Contributing",
-      //   items: [
-      //     { text: "Guideline", link: "/contributing/guideline" },
-      //     { text: "Code of Conduct", link: "contributing/code-of-conduct" }
-      //   ]
-      // }
+      {
+        text: "Contributing",
+        items: [
+          { text: "Guideline", link: "/contributing" },
+        ]
+      }
     ],
 
     socialLinks: [

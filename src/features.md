@@ -3,49 +3,63 @@ title: Beginner vs Advanced
 description: Compare Baka’s features for beginners and advanced users, and choose the best setup for you.
 head:
   - [
-      "meta",
+      meta,
       {
         name: "keywords",
-        content: "git beginner guide, advanced git, baka profiles, git aliases, git customization"
+        content: "git beginner guide, advanced git, baka profiles, contribute to git tools"
       }
     ]
+  - [meta, { name: "author", content: "Chris Mabs" }]
 ---
 
 # 🌱 Beginner vs Advanced
 
-## Beginner Profile
+Baka works for every developer—whether you're just starting with Git or you're deep in daily rebase battles.
 
-- Safe and minimal commands designed to prevent mistakes
-- Interactive prompts for critical actions like branch deletion
-- Simple, easy-to-remember aliases to build confidence
+## 👶 Beginner Profile
 
-## Advanced Profile
+For those just learning Git or using it casually:
 
-- Power-user aliases like `gundo` (undo last commit), `gclean` (clean untracked files)
-- Interactive tools such as `gmenu` with fuzzy finder (`fzf`) integration
-- Full control through sourcing custom scripts to tailor your workflow
-- Encourages scripting your own Git helpers for maximum productivity
+- ✅ **Safe defaults** – interactive prompts for critical actions (e.g., deletes, commits)
+- 🧠 **Minimal aliases** – only the essentials (`gs`, `ga`, `gco`, etc.)
+- 📘 **Readable and forgiving** – error messages, clear function naming
+- 🪄 **Fewer foot-guns** – no risky defaults; aliases guide you step-by-step
+
+## 🧙 Advanced Profile
+
+For power users who know their way around Git internals:
+
+- 🧩 **Full function suite** – `gundo`, `gclean-confirm`, `gcommit-safe`, and more
+- ⚡ **Fuzzy tools** – integration with [`fzf`](https://github.com/junegunn/fzf) for interactive Git navigation
+- 🧰 **Custom sourcing** – keep advanced tools in `~/.workflow.sh` or any file, and just `source` it
+- 🔁 **Extended workflows** – chain together aliases, hooks, and auto-pull logic
+
+> 💡 **Pro tip**: You can combine both beginner and advanced setups by organizing your config files modularly (e.g. `~/.baka-core.sh`, `~/.baka-advanced.sh`).
+
+## 🧩 Contribution
+
+Baka is open-source and welcomes your input!
+
+### 🛠 Ways to Contribute
+
+- 📥 **Submit Pull Requests** – Bug fixes, improvements, or new features
+- 🧪 **Suggest Ideas** – Open a GitHub Discussion or Issue
+- 📚 **Improve Documentation** – Help clarify usage or contribute examples
+- 💬 **Share Feedback** – What do you love/hate? Tell us!
+
+👉 [Contribute on GitHub](https://github.com/chrisachoo/baka)
+
+> 🧠 All contributions are reviewed with care. We value clarity, safety, and community insight.
 
 ## 📚 Recommended Resources
 
-- [Pro Git Book](https://git-scm.com/book/en/v2) — The definitive Git reference
-- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) — Quick command reference
-- [GitHub Docs](https://docs.github.com/en/get-started/using-git) — Official GitHub guidance and tutorials
+- 📖 [Pro Git Book](https://git-scm.com/book/en/v2)
+- 🧾 [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- 🧑‍💻 [GitHub Docs](https://docs.github.com/en/get-started/using-git)
+- 🛠 [zshine: Terminal Config Toolkit](https://github.com/chrisachoo/zshine) – for a beautiful shell experience alongside Baka
 
-## 🤝 How to Contribute
+## 📄 License
 
-We welcome contributions of all kinds — whether it’s bug fixes, feature requests, documentation improvements, or new alias ideas!
+Baka is licensed under the **MIT License** — you’re free to use, modify, and redistribute it.
 
-- **Report issues** or suggest features on [GitHub Issues](https://github.com/chrisachoo/baka/issues)
-- **Fork the repo** and submit pull requests with your enhancements
-- Join discussions or ask questions via GitHub Discussions
-- Help improve docs or create new examples
-- Share your own Git aliases or workflow scripts as inspiration
-
-<!-- Check out our [Contribution Guidelines](https://github.com/chrisachoo/baka/blob/main/CONTRIBUTING.md) for detailed instructions. -->
-
-## 📦 License
-
-Thank you for supporting Baka! Your contributions and feedback help make Git easier for everyone.
-
-Baka is released under the [MIT License](https://github.com/chrisachoo/baka/blob/main/LICENSE).
+> ✨ Build your flow. Share your tools. Help others simplify Git.
