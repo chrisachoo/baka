@@ -20,7 +20,13 @@ export default antfu(
         "error",
         {
           case: "kebabCase",
-          ignore: ["README.md"]
+          ignore: [
+            "CODE_OF_CONDUCT.md",
+            "CONTRIBUTING.md",
+            "ISSUE_TEMPLATE.md",
+            "PULL_REQUEST_TEMPLATE.md",
+            "README.md"
+          ]
         }
       ]
     }
