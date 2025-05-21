@@ -29,6 +29,6 @@
 ### 1. Clone this repo
 
 ```bash
-git clone https://github.com/yourusername/baka.git
+git clone https://github.com/chrisachoo/baka
 cd baka
 ```
