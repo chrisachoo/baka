@@ -97,6 +97,8 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/chrisachoo/baka" },
       // { icon: "discord", link: "https://discord.gg/" },
       // { icon: "x", link: "https://x.com/baka" }
+      // { icon: "discord", link: "https://discord.gg/" },
+      // { icon: "x", link: "https://x.com/baka" }
     ],
 
     editLink: {
